@@ -1,0 +1,25 @@
+{
+	"api" : "/makeRIG",
+
+    "prefix" : {
+        "taxaLookup" : "http://sswap.info/examples/resources/taxonomyLookupService/",
+        "ncbiTaxa" : "http://sswapmeet.sswap.info/NCBITaxonomyRecord/"
+    },
+
+    "taxaLookup:taxonomyLookupService" : { },
+
+    "mapping" : { "_:subject" : "_:object" },
+
+    "definitions" : {
+
+        "_:subject" : {
+            "ncbiTaxa:commonName" : "barrel medic"
+        },
+
+        "_:object" : {
+            "rdf:type" : "ncbiTaxa:TaxonomyRecord"
+        }
+
+    }
+
+}

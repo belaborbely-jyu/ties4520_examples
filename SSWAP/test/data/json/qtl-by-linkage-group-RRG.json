@@ -1,0 +1,25 @@
+{
+	"api" : "/makeRRG",
+
+    "prefix" : {
+        "gramene" : "http://sswap-c.iplantcollaborative.org/test/",
+        "map"     : "http://sswapmeet.sswap.info/map/",
+        "qtl"     : "http://sswapmeet.sswap.info/qtl/"
+    },
+
+    "gramene:qtl-by-linkage-group" : { },
+
+    "mapping" : { "_:subject" : "_:object" },
+
+    "definitions" : {
+    	
+        "_:subject" : { "map:linkageGroup" : "2a" },
+
+        "_:object" : {
+
+            "rdf:type" : "qtl:QTL",
+            "qtl:symbol" : "qSSB2-1",
+            "qtl:accessionID" : "AQAB030"
+        }
+    }
+}

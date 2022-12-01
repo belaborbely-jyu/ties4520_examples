@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:resource="http://localhost:8080/service/"
+xmlns:sswap="http://sswapmeet.sswap.info/sswap/" 
+xmlns:serviceOntology="http://localhost:8080/service/res/mySSWAPServiceOntology.owl#"
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<sswap:Resource rdf:about="http://localhost:8080/service/getService">
+    <rdf:type rdf:resource="http://localhost:8080/service/res/mySSWAPServiceOntology.owl#Thing" />
+        <sswap:providedBy rdf:resource="http://localhost:8080/service/res/resourceProvider" />
+		<sswap:name>SSWAP service</sswap:name>
+		<sswap:oneLineDescription>A service that ...</sswap:oneLineDescription>
+		<sswap:operatesOn>
+			<sswap:Graph>
+				<sswap:hasMapping>
+					<sswap:Subject>
+						<rdf:type rdf:resource="http://localhost:8080/service/res/mySSWAPServiceOntology.owl#ServiceRequest" />
+						<serviceOntology:requestProperty_1></serviceOntology:requestProperty_1>
+						<serviceOntology:requestProperty_2></serviceOntology:requestProperty_2>
+						<serviceOntology:requestProperty_3></serviceOntology:requestProperty_3>
+						<sswap:mapsTo>
+							<sswap:Object>
+								<rdf:type rdf:resource="http://localhost:8080/service/res/mySSWAPServiceOntology.owl#ServiceResult" />
+							    <serviceOntology:resultProperty_1></serviceOntology:resultProperty_1>
+                                <serviceOntology:resultProperty_2></serviceOntology:resultProperty_2>
+                                <serviceOntology:resultProperty_3></serviceOntology:resultProperty_3>
+                            </sswap:Object>
+						</sswap:mapsTo>
+					</sswap:Subject>
+				</sswap:hasMapping>
+			</sswap:Graph>
+		</sswap:operatesOn>
+	</sswap:Resource>
+</rdf:RDF>

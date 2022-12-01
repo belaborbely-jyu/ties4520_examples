@@ -1,0 +1,16 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.jyu.ties4520</groupId>
+    <artifactId>examples</artifactId>
+    <name>TIES4520 Examples</name>
+    <description>TIES4520: SSWAP fork for Maven and Template projects for Tasks: 6,7 and 8</description>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+	<modules>
+		<module>SSWAP</module>
+		<module>SW_project</module>
+		<module>SSWAP_Client</module>
+        <module>SSWAP_Service</module>
+	</modules>
+</project>

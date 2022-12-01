@@ -1,0 +1,14 @@
+@prefix e: <http://example.org/ex> .
+@prefix b: <http://example.org/ItemOntology> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . 
+
+
+e:cottage01 rdf:type b:Item; b:itemID "01"; b:hasParam01 "1"; b:hasParam02 "2"; b:hasParam03 "3" .
+
+e:cottage02 rdf:type b:Item; b:itemID "02"; b:hasParam01 "1"; b:hasParam02 "2"; b:hasParam03 "4" .
+
+e:cottage03 rdf:type b:Item; b:itemID "03"; b:hasParam01 "2"; b:hasParam02 "2"; b:hasParam03 "2" .
+
+e:cottage04 rdf:type b:Item; b:itemID "04"; b:hasParam01 "1"; b:hasParam02 "3"; b:hasParam03 "3" .
+
+e:cottage05 rdf:type b:Item; b:itemID "05"; b:hasParam01 "2"; b:hasParam02 "2"; b:hasParam03 "2" .  

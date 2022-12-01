@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Class-Path: sswap-1.0-SNAPSHOT.jar cp-common-openrdf-2.0.jar cp-common-u
+ tils-1.1-x.jar cp-common-utils-3.1.1-x.jar cp-common-fourstore-0.3.1.ja
+ r aopalliance-x.jar javassist-3.28.0-GA.jar ejb3-persistence-x.jar log4
+ j-1.2.13.jar antlr-runtime-3.2.jar jaxb-api-x.jar arq-2.8.7.jar icu4j-3
+ .4.4.jar iri-0.8.jar jena-2.6.4.jar lucene-core-2.3.1.jar stax-api-1.0.
+ 1.jar wstx-asl-3.2.9.jar xercesImpl-2.7.1.jar jgrapht-jdk1.5.jar owlapi
+ -bin-x.jar owlapi-src-x.jar owlapiv3-bin-x.jar owlapiv3-src-x.jar relax
+ ngDatatype-x.jar xsdlib-x.jar aterm-java-1.6.jar pellet-datatypes-x.jar
+  pellet-dig-x.jar pellet-el-x.jar pellet-explanation-x.jar pellet-jena-
+ x.jar pellet-modularity-x.jar pellet-owlapi-x.jar pellet-owlapiv3-x.jar
+  pellet-pellint-x.jar pellet-query-x.jar pellet-rules-x.jar pellet-test
+ -x.jar commons-codec-1.4.jar commons-httpclient-3.1.jar sdb-1.3.3.jar j
+ son-x.jar JSAP-2.1.jar pellet-core-x.jar guice-3.0.jar guice-assistedin
+ ject-3.0.jar guice-jmx-3.0.jar guice-multibindings-3.0.jar guice-throwi
+ ngproviders-3.0.jar javax.inject-x.jar junit-4.5.jar empire-0.8.3.jar e
+ mpire-jena-0.8.3.jar empire-sesame-0.8.3.jar openrdf-sesame-2.7.7.jar g
+ uava-15.0.jar jcl-over-slf4j-1.7.5.jar slf4j-log4j12-1.7.5.jar slf4j-ap
+ i-1.7.5.jar log4j-1.2.17.jar ehcache-2.8.1.jar
+

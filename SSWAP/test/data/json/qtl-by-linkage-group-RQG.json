@@ -1,0 +1,16 @@
+{
+	"api" : "/makeRQG",
+
+    "prefix" : {
+        "gramene" : "http://sswap-c.iplantcollaborative.org/test/",
+        "qtl"     : "http://sswapmeet.sswap.info/qtl/"
+     },
+
+    "urn:sswap:regex:.*linkage.*" : {
+        "sswap:providedBy" : "gramene:resourceProvider"
+
+    },
+
+    "mapping" : { "owl:Thing" : "qtl:QTL" }
+
+}

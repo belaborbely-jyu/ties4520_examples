@@ -1,0 +1,21 @@
+{
+
+    "prefix" : { "map"   : "http://sswapmeet.sswap.info/map/" },
+
+    "map:hasMappableObject" : {
+
+        "rdfs:subPropertyOf" : "map:objectProperties",
+
+        "rdfs:comment" : "Relates a Map or MapPosition to a MappableObject (a mappable element).",
+
+        "rdfs:range"  : "map:MappableObject",
+        "rdfs:domain" : {
+            "owl:unionOf" : [
+                "map:Map",
+                "map:MapCorrespondence",
+                "map:MapPosition"
+            ]
+
+        }
+    }
+}

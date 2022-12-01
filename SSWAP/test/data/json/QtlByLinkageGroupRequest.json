@@ -1,0 +1,19 @@
+{
+
+    "prefix" : {
+        "grqtl" : "http://sswap-c.iplantcollaborative.org/test/ontologies/qtl/",
+        "map"   : "http://sswapmeet.sswap.info/map/"
+     },
+
+
+
+    "grqtl:QtlByLinkageGroupRequest" : {
+
+        "rdfs:label" : "Qtl by linkage group",
+        "rdfs:comment" : "The QtlByLinkageGroupRequest class represents information that must be provided in a qtl-by-linkage-group resource graph by a client in order to retrieve a Qtl object (see the resource description graph at http://sswap.gramene.org/vpin/qtl-by-linkage-group for details). The data to be provided consists of a linkage group (represented by the map:linkageGroup property)",
+
+        "map:linkageGroup" : { "owl:cardinality" : 1 }
+
+    }
+
+}

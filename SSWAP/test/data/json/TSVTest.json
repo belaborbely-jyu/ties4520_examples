@@ -1,0 +1,33 @@
+{
+	"api" : "/makeRDG",
+
+    "prefix" : {
+        "pre"  : "http://sswap.info/404/",
+        "seq"  : "http://sswapmeet.sswap.info/sequence/",
+        "exec" : "http://sswapmeet.sswap.info/exec/"
+    },
+
+    "pre:TSVTest" : {
+
+        "sswap:name" : "TSV Test",
+        "sswap:oneLineDescription" : "A description with an escaped double quote \", comma, and tab -	-",
+        "sswap:providedBy" : "pre:resourceProvider",
+        "sswap:aboutURI" : "http://example/commas,in,an,xsd:anyURI"
+    },
+
+    "mapping" : { "_:subject" : "_:object" },
+
+    "definitions" : {
+        "_:subject" : {
+        	"seq:hasSequence" : "pre:unencoded-tab-are-illegal-in-URIs;here's-an-encoded-tab-%09-",
+        	"seq:genbankGI" : "illegal tabs		in	literal string"
+        	},
+        	
+        "_:object" : {
+        	"seq:genbankGI" : [ "double quote \" in literal string", "commas, double quote \" and two tabs >		< in literal" ],
+        	"seq:genbankAccessionNumber" : "only on object",
+        	"exec:exitValue" : 1
+        	}
+    }
+
+}

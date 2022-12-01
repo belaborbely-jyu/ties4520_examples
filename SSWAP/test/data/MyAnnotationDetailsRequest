@@ -1,0 +1,39 @@
+<rdf:RDF xmlns:map="http://sswapmeet.sswap.info/map/"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:poAnnotation="http://sswap-c.iplantcollaborative.org/test/ontologies/poAnnotation/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sswap="http://sswapmeet.sswap.info/sswap/"
+  xmlns:taxa="http://sswapmeet.sswap.info/taxa/" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Class rdf:about="file:test/data/MyAnnotationDetailsRequest">
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://sswapmeet.sswap.info/map/belongsToMapSet"/>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://sswapmeet.sswap.info/map/Map"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+      <rdf:Description>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://sswapmeet.sswap.info/map/hasMap"/>
+            <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:maxCardinality>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://sswapmeet.sswap.info/map/hasMapSet"/>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </rdf:Description>
+      <rdf:Description>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://sswapmeet.sswap.info/taxa/hasTaxa"/>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+          </owl:Restriction>
+        </owl:intersectionOf>        
+      </rdf:Description>
+    </owl:unionOf>
+  </owl:Class>
+</rdf:RDF>
+

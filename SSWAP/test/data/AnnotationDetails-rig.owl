@@ -1,0 +1,134 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:po="http://sswapmeet.sswap.info/PO/"
+    xmlns:sswap="http://sswapmeet.sswap.info/sswap/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:poAnnotation="http://plantontology.sswap.info/poAnnotations/ontologies/poAnnotation/"
+    xmlns:ncbiTaxonomyRecord="http://sswapmeet.sswap.info/NCBITaxonomyRecord/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:obo="http://sswapmeet.sswap.info/OBO/"
+    xmlns:provider="http://plantontology.sswap.info/poAnnotations/"
+    xmlns:taxa="http://sswapmeet.sswap.info/taxa/">
+  <sswap:Resource rdf:about="http://plantontology.sswap.info/poAnnotations/resources/annotationDetails/AnnotationDetails">
+    <sswap:operatesOn>
+      <sswap:Graph>
+        <sswap:hasMapping>
+          <poAnnotation:AnnotationDetailsRequest>
+            <poAnnotation:annotationSymbol>mea</poAnnotation:annotationSymbol>
+            <poAnnotation:evidenceCode>IEP</poAnnotation:evidenceCode>
+            <rdf:type>
+              <owl:Class rdf:about="http://sswapmeet.sswap.info/sswap/Subject"/>
+            </rdf:type>
+            <sswap:mapsTo>
+              <sswap:Object rdf:about="http://plantontology.org/amigo/go.cgi?search_constraint=gp&amp;view=details&amp;gp=locus:2196110"/>
+            </sswap:mapsTo>
+          </poAnnotation:AnnotationDetailsRequest>
+        </sswap:hasMapping>
+      </sswap:Graph>
+    </sswap:operatesOn>
+    <sswap:inputURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://plantontology.sswap.info/poAnnotations/resources/annotationDetails/inputForm.jsp</sswap:inputURI>
+    <sswap:aboutURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.plantontology.org/amigo/go.cgi</sswap:aboutURI>
+    <sswap:providedBy>
+      <sswap:Provider rdf:about="http://plantontology.sswap.info/poAnnotations/resourceProvider"/>
+    </sswap:providedBy>
+    <sswap:oneLineDescription>
+            Given an input annotation object symbol, retrieves 
+            annotation details and all terms associated to it. 
+        </sswap:oneLineDescription>
+    <sswap:name>Plant Ontology Terms Associated to an Annotation Object Retrieval for Annotation Object Symbol</sswap:name>
+    <sswap:metadata rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://plantontology.sswap.info/poAnnotations/po-annotations-metadata.txt</sswap:metadata>
+  </sswap:Resource>
+  <sswap:Object rdf:about="http://plantontology.org/amigo/go.cgi?search_constraint=gp&amp;view=details&amp;gp=locus:2196110">
+    <poAnnotation:hasAnnotatedPOTerm_OBOPO>
+      <poAnnotation:AnnotatedPOTerm_OBOPO rdf:about="http://sswapmeet.sswap.info/PO/PO_0020003">
+        <poAnnotation:hasDBxRecord>
+          <poAnnotation:DBxTAIR>
+            <poAnnotation:dbxName>TAIR</poAnnotation:dbxName>
+            <poAnnotation:dbxID>locus:2196110</poAnnotation:dbxID>
+            <poAnnotation:dbxURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.arabidopsis.org/servlets/TairObject?accession=locus:2196110</poAnnotation:dbxURI>
+          </poAnnotation:DBxTAIR>
+        </poAnnotation:hasDBxRecord>
+        <obo:name>ovule</obo:name>
+        <poAnnotation:ontology>plant_anatomy</poAnnotation:ontology>
+        <poAnnotation:hasAssociationMetadata>
+          <poAnnotation:AssociationMetadata>
+            <poAnnotation:evidenceCode>IEP</poAnnotation:evidenceCode>
+            <poAnnotation:hasReference>
+              <poAnnotation:PubMedReference rdf:about="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=16651654">
+                <poAnnotation:referenceID>16651654</poAnnotation:referenceID>
+                <poAnnotation:dbxURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+                >http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=16651654</poAnnotation:dbxURI>
+              </poAnnotation:PubMedReference>
+            </poAnnotation:hasReference>
+          </poAnnotation:AssociationMetadata>
+        </poAnnotation:hasAssociationMetadata>
+        <obo:id>PO:0020003</obo:id>
+      </poAnnotation:AnnotatedPOTerm_OBOPO>
+    </poAnnotation:hasAnnotatedPOTerm_OBOPO>
+    <poAnnotation:annotationSynonym>FERTILIZATION INDEPENDENT SEED 1</poAnnotation:annotationSynonym>
+    <poAnnotation:hasDBxRecord>
+      <poAnnotation:DBxTAIR>
+        <poAnnotation:dbxName>TAIR</poAnnotation:dbxName>
+        <poAnnotation:dbxID>locus:2196110</poAnnotation:dbxID>
+        <poAnnotation:dbxURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.arabidopsis.org/servlets/TairObject?accession=locus:2196110</poAnnotation:dbxURI>
+      </poAnnotation:DBxTAIR>
+    </poAnnotation:hasDBxRecord>
+    <poAnnotation:annotationName>AT1G02580</poAnnotation:annotationName>
+    <taxa:hasTaxa>
+      <ncbiTaxonomyRecord:TaxonomyRecord rdf:about="http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&amp;id=3702">
+        <ncbiTaxonomyRecord:scientificName>Arabidopsis thaliana</ncbiTaxonomyRecord:scientificName>
+        <ncbiTaxonomyRecord:commonName>thale cress</ncbiTaxonomyRecord:commonName>
+        <ncbiTaxonomyRecord:taxonomyID>3702</ncbiTaxonomyRecord:taxonomyID>
+      </ncbiTaxonomyRecord:TaxonomyRecord>
+    </taxa:hasTaxa>
+    <rdf:type>
+      <owl:Class rdf:about="http://plantontology.sswap.info/poAnnotations/ontologies/poAnnotation/Annotation"/>
+    </rdf:type>
+    <poAnnotation:annotationSynonym>AT1G02580</poAnnotation:annotationSynonym>
+  </sswap:Object>
+  <rdf:Description>
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="http://plantontology.sswap.info/poAnnotations/ontologies/poAnnotation/AnnotationDetailsRequest"/>
+      <owl:Class rdf:about="http://sswapmeet.sswap.info/sswap/Subject"/>
+    </owl:intersectionOf>
+  </rdf:Description>
+  <owl:Class rdf:about="http://plantontology.sswap.info/ontologies/poAnnotation/AnnotationDetailsRequest"/>
+  <rdf:Description>
+    <owl:intersectionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="http://plantontology.sswap.info/poAnnotations/ontologies/poAnnotation/Annotation"/>
+      <owl:Class rdf:about="http://sswapmeet.sswap.info/sswap/Object"/>
+    </owl:intersectionOf>
+  </rdf:Description>
+  <poAnnotation:Annotation>
+    <rdf:type rdf:resource="http://sswapmeet.sswap.info/sswap/Object"/>
+  </poAnnotation:Annotation>
+  <owl:Ontology rdf:about="http://sswapmeet.sswap.info/sswap/owlOntology">
+    <owl:imports rdf:resource="http://sswapmeet.sswap.info/sswap/owlOntology"/>
+    <owl:imports>
+      <owl:Ontology rdf:about="http://sswapmeet.sswap.info/NCBITaxonomyRecord/owlImports"/>
+    </owl:imports>
+    <owl:imports>
+      <owl:Ontology rdf:about="http://sswapmeet.sswap.info/taxa/owlImports"/>
+    </owl:imports>
+    <owl:imports>
+      <owl:Ontology rdf:about="http://sswapmeet.sswap.info/OBO/owlImports"/>
+    </owl:imports>
+    <owl:imports>
+      <owl:Ontology rdf:about="http://plantontology.sswap.info/poAnnotations/ontologies/poAnnotation/owlImports"/>
+    </owl:imports>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://sswapmeet.sswap.info/sswap/Resource"/>
+  <owl:Class rdf:about="http://plantontology.sswap.info/poAnnotations/ontologies/poAnnotation/DBxTAIR"/>
+  <owl:Class rdf:about="http://plantontology.sswap.info/poAnnotations/ontologies/poAnnotation/PubMedReference"/>
+  <owl:Class rdf:about="http://sswapmeet.sswap.info/NCBITaxonomyRecord/TaxonomyRecord"/>
+  <owl:Class rdf:about="http://sswapmeet.sswap.info/sswap/Graph"/>
+  <owl:Class rdf:about="http://plantontology.sswap.info/poAnnotations/ontologies/poAnnotation/AssociationMetadata"/>
+  <owl:Class rdf:about="http://plantontology.sswap.info/poAnnotations/ontologies/poAnnotation/AnnotatedPOTerm_OBOPO"/>
+</rdf:RDF>
+

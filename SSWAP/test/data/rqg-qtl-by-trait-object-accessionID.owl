@@ -1,0 +1,24 @@
+<rdf:RDF 
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+  xmlns:sswap="http://sswapmeet.sswap.info/sswap/"
+  xmlns:qtl="http://sswapmeet.sswap.info/qtl/">
+  <sswap:Resource>
+    <sswap:operatesOn>
+      <sswap:Graph>
+        <sswap:hasMapping>
+          <sswap:Subject>
+            <sswap:mapsTo>
+              <sswap:Object>
+                <qtl:accessionID/>
+              </sswap:Object>
+            </sswap:mapsTo>
+          </sswap:Subject>
+        </sswap:hasMapping>
+      </sswap:Graph>
+    </sswap:operatesOn>
+  </sswap:Resource>
+  <owl:Ontology rdf:about="http://sswapmeet.sswap.info/sswap/owlOntology">
+    <owl:imports rdf:resource="http://sswapmeet.sswap.info/sswap/owlOntology"/>
+  </owl:Ontology>
+</rdf:RDF>

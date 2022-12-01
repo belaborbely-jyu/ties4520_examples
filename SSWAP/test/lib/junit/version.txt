@@ -1,0 +1,4 @@
+JUnit
+Version: 4.8.2
+Date: July 7, 2010
+Available at: http://www.junit.org

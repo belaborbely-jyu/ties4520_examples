@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns="http://iri.columbia.edu/~blaszyko/ontologies/"
+  xmlns:j.0="http://iri.columbia.edu/~blaszyko/ontologies/format/"
+  xmlns:j.1="http://sswapmeet.sswap.info/mime/application/"
+  xmlns:j.2="http://sswapmeet.sswap.info/mime/image/"
+  xmlns:mime="http://sswapmeet.sswap.info/mime/"
+  xmlns:mySemanticServices="http://localhost:8080/Sswap/"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sswap="http://sswapmeet.sswap.info/sswap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <sswap:Resource rdf:about="http://localhost:8080/Sswap/Fig2Doc">
+    <!--
+    	Here starts the protocol graph.
+
+        In this template, the sequence of predicates (properties: sswap:operatesOn,
+        sswap:hasMapping, and sswap:mapsTo) join nodes of types sswap:Resource,
+        sswap:Graph, sswap:Subject, and sswap:Object respectively.  It is the
+        conceptual analogy of the fundamental RDF model of subject -> predicate
+        -> object, but here abstracted to express that "some resource" has
+        "some mapping" of a subject to an object.
+
+        To establish an actual mapping, add predicates and restrictions to
+        the sswap:Subject and sswap:Object nodes. These nodes anchor arbitrary
+        OWL subgraphs with domain-specific ontologies. The sswap:Graph node is
+        for certain complex mappings only.
+
+        See the protocol at http://sswap.info/protocol. 
+        -->
+    <sswap:operatesOn>
+      <sswap:Graph>
+        <sswap:hasMapping>
+          <sswap:Subject>
+            <sswap:mapsTo>
+              <sswap:Object>
+                <rdf:type>
+                  <owl:Class rdf:about="http://sswapmeet.sswap.info/mime/image/Jpeg"/>
+                </rdf:type>
+              </sswap:Object>
+            </sswap:mapsTo>
+            <rdf:type>
+              <owl:Class rdf:about="http://iri.columbia.edu/~blaszyko/ontologies/format/Figure"/>
+            </rdf:type>
+          </sswap:Subject>
+        </sswap:hasMapping>
+      </sswap:Graph>
+    </sswap:operatesOn>
+    <!--
+    	Enter a one line description about this resource.  Client viewers,
+        such as the search engine at http://sswap.info may use this one
+        line description to give users a quick description about the
+        resource.  For more detailed information, direct users to the
+        sswap:aboutURI URL.  
+        -->
+    <sswap:oneLineDescription>Convert a figure to a document</sswap:oneLineDescription>
+    <!--
+    	Use the sswap:providedBy predicate to identify the resource provider
+    	which claims ownership of this resource.
+
+        If a resource's URL is not a sub-directory of its provider's URL, then
+        this predicate is required and the provider's sswap:providesResource
+        predicate must reciprocate the assertion back to this resource.
+
+        Each resource must have exactly one provider. Providers are always
+        of type sswap:Provider and must have their own Provider Description Graph
+        (PDG) dereferencable from their URI.
+        -->
+    <sswap:providedBy rdf:resource="http://localhost:8080/Sswap/PDG"/>
+    <!-- 
+        Every resource must have a name.  Use something short and
+        informative that can be displayed to users.  
+        -->
+    <sswap:name>Fig2Doc</sswap:name>
+  </sswap:Resource>
+  <owl:Class rdf:about="http://sswapmeet.sswap.info/sswap/Resource"/>
+  <owl:Class rdf:about="http://sswapmeet.sswap.info/sswap/Object"/>
+  <owl:Class rdf:about="http://sswapmeet.sswap.info/sswap/Graph"/>
+  <owl:Class rdf:about="http://sswapmeet.sswap.info/sswap/Subject"/>
+</rdf:RDF>

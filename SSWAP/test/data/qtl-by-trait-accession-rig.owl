@@ -1,0 +1,128 @@
+<rdf:RDF xmlns:grqtl="http://sswap-c.iplantcollaborative.org/test/ontologies/qtl/"
+  xmlns:map="http://sswapmeet.sswap.info/map/"
+  xmlns:oboInOwl="http://sswapmeet.sswap.info/oboInOwl/"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:provider="http://sswap-c.iplantcollaborative.org/test/"
+  xmlns:qtl="http://sswapmeet.sswap.info/qtl/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sswap="http://sswapmeet.sswap.info/sswap/"
+  xmlns:tax="http://sswapmeet.sswap.info/NCBITaxonomyRecord/"
+  xmlns:taxa="http://sswapmeet.sswap.info/taxa/"
+  xmlns:trait="http://sswapmeet.sswap.info/trait/" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <sswap:Resource rdf:about="http://sswap-c.iplantcollaborative.org/test/qtl-by-trait-accession">
+    <!--
+    	Here starts the canonical graph.
+
+        In this template, the sequence of predicates (properties: operatesOn,
+        hasMapping, and mapsTo) simply joins blank nodes of types Graph,
+        Subject, and Object respectively.
+
+        To establish an actual mapping, add predicates and restrictions to
+        the Subject and Object nodes.  The Graph node is used only in cases
+        of complex 1:many or many:many mappings.
+
+        See the protocol at http://sswap.info/protocol. 
+        -->
+    <sswap:operatesOn>
+      <sswap:Graph>
+        <sswap:hasMapping>
+          <sswap:Subject>
+            <sswap:mapsTo>
+              <sswap:Object>
+                <qtl:accessionID/>
+                <qtl:symbol/>
+                <trait:symbol/>
+                <trait:name/>
+                <tax:commonName/>
+                <map:name/>
+                <map:startPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</map:startPosition>
+                <map:endPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</map:endPosition>
+              </sswap:Object>
+            </sswap:mapsTo>
+            <rdf:type>
+              <owl:Class rdf:about="http://sswap-c.iplantcollaborative.org/test/ontologies/qtl/QtlByTraitAccessionRequest"/>
+            </rdf:type>
+            <trait:accessionID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">abc</trait:accessionID>
+            <trait:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">abc</trait:name>
+            <trait:symbol rdf:datatype="http://www.w3.org/2001/XMLSchema#string">abc</trait:symbol>
+          </sswap:Subject>
+        </sswap:hasMapping>
+      </sswap:Graph>
+    </sswap:operatesOn>
+    <!-- 
+        Every resource must have a name.  Use something short and
+        informative that can be displayed to users.  
+        -->
+    <sswap:name>Gramene QTLs for Trait Ontology Accession ID Retrieval</sswap:name>
+    <!-- 
+    	Resources may require special user interfaces to gather input such as 
+    	using web pages to solicit input from users. Programs that are preparing to 
+    	invoke a resource may direct users to the URI pointed to by this property for 
+    	the appropriate user interface.
+    	-->
+    <sswap:inputURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://sswap.gramene.org/vpin/invoke-qtl-by-trait-accession.jsp</sswap:inputURI>
+    <!-- 
+    	The sswap:aboutURI predicate allows you to link this resource to
+        the web for the benefit of users seeking more detailed information
+        about this provider than just a name and oneLineDescription.
+
+        SSWAP does not stipulate how the sswap:aboutURI is to be used, but
+        it is suggested that it point to an informative human-readable web
+        page.  
+        -->
+    <sswap:aboutURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.gramene.org/qtl</sswap:aboutURI>
+    <!--
+    	Use the sswap:providedBy predicate to identify those semantic web
+        services (resources) for which claim ownership of this resource.
+
+        If a resource's URL is not a sub-directory of its provider's URL, then
+        this predicate is required and the provider's sswap:providesResource
+        predicate must reciprocate the assertion back to this resource.
+
+        Each resource must have exactly one provider.  
+        -->
+    <sswap:providedBy>
+      <sswap:Provider rdf:about="http://sswap-c.iplantcollaborative.org/test/resourceProvider"/>
+    </sswap:providedBy>
+    <!--
+    	Enter a one line description about this resource.  Client viewers,
+        such as the search engine at http://sswap.info may use this one
+        one line description to give users a quick description about the
+        resource.  For more detailed information, direct users to the
+        sswap:aboutURI URL.  
+        -->
+    <sswap:oneLineDescription>
+            Given an input trait accession ID returns 
+            list of qtl accessions and published name
+        </sswap:oneLineDescription>
+    <!--
+    	The metadata file allows you to associate searchable text with this
+        resource. While you have complete control over what is in the file,
+        providers do not have control on how, or even if, others may use the
+        file.  
+        -->
+    <sswap:metadata rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://sswap.gramene.org/vpin/qtl-by-trait-accession-metadata.txt</sswap:metadata>
+  </sswap:Resource>
+  <owl:Ontology rdf:about="http://sswapmeet.sswap.info/sswap/owlOntology">
+    <owl:imports rdf:resource="http://sswapmeet.sswap.info/sswap/owlOntology"/>
+    <owl:imports>
+      <owl:Ontology rdf:about="http://sswapmeet.sswap.info/oboInOwl/owlImports"/>
+    </owl:imports>
+    <owl:imports>
+      <owl:Ontology rdf:about="http://sswapmeet.sswap.info/qtl/owlImports"/>
+    </owl:imports>
+    <owl:imports>
+      <owl:Ontology rdf:about="http://sswapmeet.sswap.info/trait/owlImports"/>
+    </owl:imports>
+    <owl:imports>
+      <owl:Ontology rdf:about="http://sswapmeet.sswap.info/NCBITaxonomyRecord/owlImports"/>
+    </owl:imports>
+    <owl:imports>
+      <owl:Ontology rdf:about="http://sswapmeet.sswap.info/map/owlImports"/>
+    </owl:imports>
+    <owl:imports>
+      <owl:Ontology rdf:about="http://sswap-c.iplantcollaborative.org/test/ontologies/qtl/owlImports"/>
+    </owl:imports>
+  </owl:Ontology>
+</rdf:RDF>

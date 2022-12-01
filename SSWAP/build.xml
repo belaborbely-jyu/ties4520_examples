@@ -1,0 +1,287 @@
+<project name="SSWAP-Java-API" default="dist" basedir=".">
+	<description>SSWAP Java API is an implementation of Java API for SSWAP protocol</description>
+
+	<!-- Read user properties -->
+	<property file="build.properties"/>
+	<property file="${user.home}/build.properties"/>
+
+	<!-- Enviroment -->
+	<property environment="env"/>
+
+	<property name="project.name" value="sswap"/>
+
+	<!-- build the verion number -->
+	<property name="project.versionMajor" value="1"/>
+	<property name="project.versionMinor" value="0"/>
+	<exec executable="/bin/date" outputproperty="project.versionSequential">
+		<arg line="+%y%j"/>
+	</exec>
+	<property name="project.version" value="${project.versionMajor}.${project.versionMinor}.${project.versionSequential}"/>
+
+	<property name="doc.dir" location="doc"/>
+	<property name="src.dir" location="src"/>
+	<property name="test.dir" location="test"/>
+	<property name="test.src.dir" location="${test.dir}/src"/>
+
+	<property name="lib.dir" location="lib"/>
+	<property name="test.lib.dir" location="${test.dir}/lib"/>
+
+	<property name="build.dir" location="build"/>
+	<property name="test.build.dir" location="${test.dir}/build"/>
+
+	<property name="dist.dir" location="dist"/>
+	<property name="dist.src.dir" location="${dist.dir}/src"/>
+	<property name="dist.docs.dir" location="${dist.dir}/docs"/>
+	<property name="dist.lib.dir" location="${dist.dir}/lib"/>
+	<property name="dist.api.javadoc.dir" location="${dist.docs.dir}/javadoc/api"/>
+	<property name="dist.impl.javadoc.dir" location="${dist.docs.dir}/javadoc/impl"/>
+
+    <property name="version.file" value="info/sswap/api/model/version.properties"/>
+    <property name="project.version.file" value="${build.dir}/${version.file}"/>
+    <property name="project.version.template" value="${src.dir}/${version.file}.in"/>
+
+	<path id="project.class.path">
+		<pathelement location="${build.dir}"/>
+		<pathelement location="${test.build.dir}"/>
+
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar"/>
+			<exclude name="**/${project.name}*.jar"/>
+			<exclude name="**/*slf4j*.jar"/>
+		</fileset>
+
+		<fileset dir="${test.lib.dir}">
+			<include name="**/*.jar"/>
+			<exclude name="**/${project.name}*.jar"/>
+		</fileset>
+	</path>
+
+	<path id="test.class.path">
+		<pathelement location="${build.dir}"/>
+		<pathelement location="${test.build.dir}"/>
+
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar"/>
+			<exclude name="**/${project.name}*.jar"/>
+			<exclude name="**/*slf4j*.jar"/>
+
+            <!-- Exclude JUnit versions from Pellet and Jena (they are older than the one used by us) -->
+            <exclude name="**/jena/junit*.jar"/>
+            <exclude name="**/pellet/pellet-cli.jar"/>
+            <exclude name="**/pellet/junit/junit*.jar"/>
+		</fileset>
+
+		<fileset dir="${test.lib.dir}">
+			<include name="**/*.jar"/>
+			<exclude name="**/${project.name}*.jar"/>
+		</fileset>
+	</path>
+
+	<target name="init">
+		<pathconvert targetos="unix" property="classpath" refid="project.class.path"/>
+		
+		<tstamp/>
+
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${test.build.dir}"/>
+
+		<mkdir dir="${dist.dir}"/>
+		<mkdir dir="${dist.src.dir}"/>
+		<mkdir dir="${dist.lib.dir}"/>
+		<mkdir dir="${dist.docs.dir}"/>
+		<mkdir dir="${dist.api.javadoc.dir}"/>
+		<mkdir dir="${dist.impl.javadoc.dir}"/>
+	</target>
+
+	<target name="copy-version-info">
+		<copy file="${project.version.template}" tofile="${project.version.file}"
+			overwrite="true"/>
+		<replace file="${project.version.file}">
+			<replacefilter token="@@VERSION@@" value="${project.version}"/>
+			<replacefilter token="@@DATE@@" value="${TODAY}"/>
+		</replace>
+	</target>
+
+	<target name="compile" depends="init, compile-main, copy-version-info, compile-test" description="Compile source files">
+	</target>
+
+	<target name="compile-main" depends="init">
+		<javac source="1.5" target="1.5" destdir="${build.dir}" debug="true" debuglevel="lines,vars,source">
+			<src path="${src.dir}"/>
+			<classpath refid="project.class.path"/>
+		</javac>
+        <copy todir="${build.dir}">
+          <fileset dir="${src.dir}">
+            <exclude name="**/*.java"/>
+          </fileset>
+        </copy>
+	</target>
+
+	<target name="compile-test" depends="init, compile-main">
+		<javac source="1.5" target="1.5" destdir="${test.build.dir}" debug="true" debuglevel="lines,vars,source">
+			<src path="${test.src.dir}"/>
+			<classpath refid="test.class.path"/>
+		</javac>
+	</target>
+
+	<target name="build" depends="compile">
+	</target>
+
+	<target name="dist" depends="build" description="Generate a distribution">
+        <jar jarfile="${dist.src.dir}/${project.name}-api-src.jar" basedir="${src.dir}" includes="info/sswap/api/**"/>
+        <jar jarfile="${dist.src.dir}/${project.name}-impl-src.jar" basedir="${src.dir}" includes="info/sswap/impl/**"/> 
+
+        <jar jarfile="${dist.lib.dir}/${project.name}.jar" basedir="${build.dir}" includes="info/sswap/**"/>
+
+<!--        <jar jarfile="${dist.lib.dir}/${project.name}-test.jar" basedir="${test.build.dir}" includes="info/sswap/api/**"/> -->
+
+		<copy todir="${dist.lib.dir}">
+			<fileset dir="${lib.dir}">
+				<include name="**/*.jar"/>
+				<include name="**/*.txt"/>
+                <exclude name="**/*slf4j*.jar"/>
+                <exclude name="**/pellet/junit/junit*.jar"/>
+                <exclude name="**/jena/junit*.jar"/>
+			</fileset>
+
+			<fileset dir="${test.lib.dir}">
+				<include name="**/*.jar"/>
+                <exclude name="emma/*"/>
+				<include name="**/*.txt"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="distfiles">
+		<copy todir="${dist.dir}">
+			<fileset dir="">
+				<include name="COPYING"/>
+				<include name="README"/>
+				<include name="LICENSE.txt"/>
+				<include name="docs/**/*.txt"/>
+				<include name="docs/**/*.html"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="zip" depends="label-date,dist,distfiles, javadoc"
+		description="Build a zipfile containing source and binaries.">
+		<condition property="project.dirname" value="${project.name}-${DSTAMP}">
+			<not>
+				<isset property="project.dirname"/>
+			</not>
+		</condition>
+
+		<copy todir="${dist.dir}">
+			<fileset dir="">
+				<include name="docs/**"/>
+			</fileset>
+		</copy>
+
+		<zip destfile="${dist.dir}/${project.dirname}.zip">
+			<zipfileset dir="dist" prefix="${project.dirname}"
+				excludes="${project.name}*.zip, dist/test-reports"/>
+		</zip>
+	</target>
+
+	<target name="label-date" depends="init">
+		<property name="project.version.label" value="${DSTAMP}"/>
+		<property name="project.label" value="${project.name}-${DSTAMP}"/>
+	</target>
+
+	<target name="label-release" depends="init">
+		<property name="project.version.label" value="${project.version}"/>
+		<property name="project.label" value="${project.name}-${project.version}"/>
+	</target>
+
+	<target name="javadoc" depends="build">
+		<javadoc destdir="${dist.api.javadoc.dir}" access="protected" use="true" notree="false"
+			nonavbar="false" noindex="false" splitindex="true" author="true"
+			version="true" nodeprecatedlist="false" nodeprecated="false"
+			packagenames="info.sswap.api.*"
+            excludepackagenames="info.sswap.api.input.*"
+			doctitle="${project.name}-${project.version.label}"
+			overview="${doc.dir}/overview.html"
+			bottom="Copyright (c) 2011, iPlant Collaborative, University of Arizona, Cold Spring Harbor Laboratories, University of Texas at Austin.">
+			<classpath refid="project.class.path"/>
+			<fileset dir="${src.dir}" defaultexcludes="yes">
+				<include name="info/sswap/api/**/*.java"/>
+				<include name="info/sswap/ontologies/**/api/*.java"/>
+                <exclude name="info/sswap/api/input/**"/>
+			</fileset>
+		</javadoc>
+
+		<javadoc destdir="${dist.impl.javadoc.dir}" access="private" use="true" notree="false"
+			nonavbar="false" noindex="false" splitindex="true" author="true"
+			version="true" nodeprecatedlist="false" nodeprecated="false"
+			packagenames="info.sswap.impl.*"
+			doctitle="${project.name}-${project.version.label}"
+			overview="${doc.dir}/overview.html"
+			bottom="Copyright (c) 2011, iPlant Collaborative, University of Arizona, Cold Spring Harbor Laboratories, University of Texas at Austin.">
+			<classpath refid="project.class.path"/>
+			<fileset dir="${src.dir}" defaultexcludes="yes">
+				<include name="info/sswap/api/**/*.java"/>
+				<include name="info/sswap/ontologies/**/api/*.java"/>
+				<include name="info/sswap/impl/**/*.java"/>
+				<include name="info/sswap/ontologies/**/impl/*.java"/>
+			</fileset>
+		</javadoc>
+	</target>
+
+	<!--
+	******************** RELEASE ********************
+	-->
+
+	<target name="release" depends="label-release">
+		<property name="project.dirname"
+			value="${project.name}-${project.version.label}"/>
+		<antcall target="zip"/>
+	</target>
+
+	<!--
+	********************* TEST **********************
+	-->
+
+	<target name="test" depends="dist">
+		<mkdir dir="dist/test-reports"/>
+  		<junit fork="yes" printsummary="yes" haltonfailure="no" dir="${basedir}">
+            <jvmarg value="-Xmx1024m"/>
+            <formatter type="plain" usefile="false"/>
+            <formatter type="xml" usefile="true" if="sswap.junit.output.xml"/>
+            <test name="info.sswap.api.test.SSWAPTestSuite"/> 
+    		<classpath refid="test.class.path"/>
+  		</junit>
+	</target>
+
+	<target name="test-coverage" depends="dist">
+        <property name="emma.enabled" value="true"/>
+        <property name="emma.dir" value="test/lib/emma"/>
+        
+        <path id="emma.lib">
+          <pathelement location="${emma.dir}/emma.jar"/>
+          <pathelement location="${emma.dir}/emma_ant.jar"/>
+        </path>
+        <taskdef resource="emma_ant.properties" classpathref="emma.lib"/>
+
+		<mkdir dir="dist/coverage-reports"/>
+
+        <emmajava enabled="${emma.enabled}" libclasspathref="emma.lib" classname="info.sswap.api.test.SSWAPTestSuite" classpathref="project.class.path" sourcepath="src">
+          <jvmarg value="-Xmx1024m"/>
+          <filter includes="info.sswap.*"/>
+          <filter excludes="info.sswap.api.test.*"/>
+          <txt outfile="dist/coverage-reports/coverage.txt"/>
+          <html outfile="dist/coverage-reports/coverage.html"/>
+          <xml outfile="dist/coverage-reports/coverage.xml"/>
+        </emmajava>
+	</target>
+
+	<!--
+	******************** CLEAN ********************
+	-->
+
+	<target name="clean" description="Clean up build files">
+		<delete dir="${build.dir}"/>
+		<delete dir="${test.build.dir}"/>
+		<delete dir="${dist.dir}"/>
+	</target>
+</project>

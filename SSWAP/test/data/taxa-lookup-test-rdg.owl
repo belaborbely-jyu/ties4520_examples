@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+    <!ENTITY rdf      "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <!ENTITY rdfs     "http://www.w3.org/2000/01/rdf-schema#">
+    <!ENTITY owl      "http://www.w3.org/2002/07/owl#">
+    <!ENTITY xsd      "http://www.w3.org/2001/XMLSchema#">
+    <!ENTITY sswap    "http://sswapmeet.sswap.info/sswap/">
+    <!ENTITY provider "http://sswap-c.iplantcollaborative.org/test/">
+    <!ENTITY qtl      "http://sswapmeet.sswap.info/qtl/">
+    <!ENTITY trait    "http://sswapmeet.sswap.info/trait/">
+    <!ENTITY tax      "http://sswapmeet.sswap.info/NCBITaxonomyRecord/">
+    <!ENTITY taxa     "http://sswapmeet.sswap.info/taxa/">
+    <!ENTITY map      "http://sswapmeet.sswap.info/map/">
+    <!ENTITY oboInOwl "http://sswapmeet.sswap.info/oboInOwl/">
+    <!ENTITY grqtl    "http://sswap-c.iplantcollaborative.org/test/ontologies/qtl/">
+]>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:sswap="http://sswapmeet.sswap.info/sswap/" xmlns:provider="http://sswap-c.iplantcollaborative.org/test/" xmlns:trait="http://sswapmeet.sswap.info/trait/" xmlns:tax="http://sswapmeet.sswap.info/NCBITaxonomyRecord/" xmlns:taxa="http://sswapmeet.sswap.info/taxa/" xmlns:qtl="http://sswapmeet.sswap.info/qtl/" xmlns:map="http://sswapmeet.sswap.info/map/" xmlns:oboInOwl="http://sswapmeet.sswap.info/oboInOwl/" xmlns:grqtl="http://sswap-c.iplantcollaborative.org/test/ontologies/qtl/">
+
+
+    <!-- Declare the terms here -->
+    <!--
+    Note: this will pass a stand-alone reasoner check, but the
+    SSWAP validator will still try to get the closure, so the
+    offending map:startPosition and map:endPosition terms will still
+    cause an error.  The fix is for us to fix the map ontology. 
+ 
+    <owl:DatatypeProperty rdf:about="&map;startPosition"/>
+    <owl:DatatypeProperty rdf:about="&map;endPosition"/>
+   -->
+
+    <sswap:Resource rdf:about="http://test.sswap.info/services/taxa-lookup-test">
+
+        <sswap:name>Taxa lookup test</sswap:name>
+
+        <sswap:oneLineDescription>
+          A test service for checking closed world reasoning
+        </sswap:oneLineDescription>
+
+        <sswap:providedBy>
+            <sswap:Provider rdf:about="http://sswap-c.iplantcollaborative.org/test/resourceProvider"/>
+        </sswap:providedBy>
+
+        <sswap:aboutURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.gramene.org/qtl</sswap:aboutURI>
+
+        <sswap:metadata rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://sswap.gramene.org/vpin/qtl-by-trait-accession-metadata.txt</sswap:metadata>
+
+        <sswap:inputURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://sswap.gramene.org/vpin/invoke-qtl-by-trait-accession.jsp</sswap:inputURI>
+
+        <sswap:operatesOn>
+            <sswap:Graph>
+                <sswap:hasMapping>
+                    <sswap:Subject>
+                         <rdf:type>
+                            <owl:Class rdf:about="tag:sswap.info,2011-01-31:sswap:java:api:RIGTest#TaxaLookupTestRequest"/>
+                        </rdf:type>
+                        <sswap:mapsTo>
+                            <sswap:Object/>
+                        </sswap:mapsTo>
+                    </sswap:Subject>
+                </sswap:hasMapping>
+            </sswap:Graph>
+        </sswap:operatesOn>
+    </sswap:Resource>
+    <owl:Class rdf:about="tag:sswap.info,2011-01-31:sswap:java:api:RIGTest#TaxaLookupTestRequest">
+      <owl:equivalentClass>
+           <owl:Restriction>
+             <owl:onProperty>
+               <owl:ObjectProperty rdf:about="&taxa;hasTaxa"/>
+             </owl:onProperty>
+             <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+           </owl:Restriction>
+          </owl:equivalentClass>
+    </owl:Class>
+</rdf:RDF>

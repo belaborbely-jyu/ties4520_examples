@@ -1,0 +1,27 @@
+{
+	"api" : "/makeRDG",
+
+    "prefix" : {
+        "gramene" : "http://sswap-c.iplantcollaborative.org/test/",
+        "grqtl"   : "http://sswap-c.iplantcollaborative.org/test/ontologies/qtl/",
+        "qtl"     : "http://sswapmeet.sswap.info/qtl/"
+    },
+
+    "gramene:qtl-by-linkage-group" : {
+
+        "sswap:name" : "Gramene QTLs for Linkage Group Retrieval",
+        "sswap:oneLineDescription" : "Given an input linkage group this service returns a list of QTL accessions and published name",
+        "sswap:providedBy" : "gramene:resourceProvider",
+        "sswap:aboutURI" : "http://www.gramene.org/qtl",
+        "sswap:metadata" : "gramene:qtl-by-linkage-group-metadata.txt",
+        "sswap:inputURI" : "gramene:invoke-qtl-by-linkage-group.jsp"
+    },
+
+    "mapping" : { "_:subject" : "_:object" },
+
+    "definitions" : {
+        "_:subject" : { "rdf:type" : "grqtl:QtlByLinkageGroupRequest" },
+        "_:object" : { "rdf:type" : "qtl:QTL" }
+    }
+
+}

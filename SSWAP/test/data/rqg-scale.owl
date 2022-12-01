@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:sswap="http://sswapmeet.sswap.info/sswap/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:j.0="http://sswapmeet.sswap.info/mime/image/">
+  <sswap:Resource rdf:about="http://sswap-a.iplantcollaborative.org/sswap-pipeline-test/test/data/pipeline/scale">
+    <sswap:operatesOn>
+      <sswap:Graph>
+        <sswap:hasMapping>
+          <sswap:Subject>
+            <sswap:mapsTo>
+              <sswap:Object/>
+            </sswap:mapsTo>
+            <rdf:type>
+              <owl:Class rdf:about="http://sswapmeet.sswap.info/mime/image/Png"/>
+            </rdf:type>
+          </sswap:Subject>
+        </sswap:hasMapping>
+      </sswap:Graph>
+    </sswap:operatesOn>
+  </sswap:Resource>
+  <owl:Class rdf:about="http://sswapmeet.sswap.info/sswap/Resource"/>
+  <owl:Class rdf:about="http://sswapmeet.sswap.info/sswap/Object"/>
+  <owl:Class rdf:about="http://sswapmeet.sswap.info/sswap/Subject"/>
+  <owl:Class rdf:about="http://sswapmeet.sswap.info/sswap/Graph"/>
+</rdf:RDF>

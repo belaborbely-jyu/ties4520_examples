@@ -1,0 +1,17 @@
+{
+
+	"api" : "/makePDG",
+	
+    "prefix" : {
+        "gramene" : "http://sswap-c.iplantcollaborative.org/test/"
+    },
+
+    "gramene:resourceProvider" : {
+
+        "sswap:name" : "Gramene",
+        "sswap:oneLineDescription" : "A Resource for Comparative Grass Genomics",
+        "sswap:aboutURI" : "http://www.gramene.org/qtl"
+
+    }
+
+}

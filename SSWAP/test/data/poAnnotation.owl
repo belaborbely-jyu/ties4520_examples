@@ -1,0 +1,42 @@
+<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:poAnnotation="http://localhost:8080/paAnnotations/ontologies/poAnnotation/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sswap="http://sswapmeet.sswap.info/sswap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:DatatypeProperty rdf:about="http://localhost:8080/paAnnotations/ontologies/poAnnotation/evidenceCode">
+    <rdfs:subPropertyOf rdf:resource="http://plantontology.sswap.info/paAnnotations/ontologies/poAnnotation/datatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class rdf:about="http://plantontology.sswap.info/paAnnotations/ontologies/poAnnotation/AssociationMetadata"/>
+    </rdfs:domain>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Predicate of the poAnnotation:AssociationMetadata to specify the evidence for the association between an annotation, represented by poAnnotation:Annotation and a po term, represented by poAnnotation:AnnotatedPOTerm. One of: IC, IDA, IEP, IMP, NAS, TAS, AllCuratorApproved.</rdfs:comment>
+    <rdfs:range>
+      <rdfs:Datatype>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IC</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IDA</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IEP</rdf:first>
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IMP</rdf:first>
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NAS</rdf:first>
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TAS</rdf:first>
+                    <rdf:rest rdf:parseType="Resource">
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AllCuratorApproved</rdf:first>
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:rest>
+                  </rdf:rest>
+                </rdf:rest>
+              </rdf:rest>
+            </rdf:rest>
+          </rdf:rest>
+        </owl:oneOf>
+      </rdfs:Datatype>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:Thing rdf:about="http://example.com/a">
+      <poAnnotation:evidenceCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IC</poAnnotation:evidenceCode>
+  </owl:Thing>
+</rdf:RDF>

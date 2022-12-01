@@ -1,0 +1,16 @@
+{ 
+    "service:grayscale" : {}, 
+    "prefix": { 
+        "service" : "http://sswap-a.iplantcollaborative.org/sswap-pipeline-test/test/data/pipeline/", 
+        "mime" : "http://sswapmeet.sswap.info/mime/" 
+    }, 
+    "api":"/makeRIG", 
+    "mapping":{ 
+         "http://sswap.info/images/uoa-small.png" : "mime:image/Png" 
+    }, 
+    "definitions": { 
+        "http://sswap.info/images/uoa-small.png": { 
+            "rdf:type" : "mime:image/Png" 
+         } 
+    } 
+} 
